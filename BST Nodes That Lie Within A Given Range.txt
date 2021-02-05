@@ -1,0 +1,32 @@
+void inorder(Node *root,vector<int> &v)
+{
+    if(root==NULL)
+     return;
+     inorder(root->left,v);
+     v.push_back(root->data);
+     inorder(root->right,v);
+     
+}
+
+
+
+int getCount(Node *root, int l, int h)
+{
+  // your code goes here   \
+  
+  if(root==NULL)
+   return 0;
+   
+   int count=0;
+   vector<int> v;
+   
+   inorder(root,v);
+   
+   for(int i=0;i<v.size();i++)
+   {
+       if(v[i]>= l && v[i]<=h)
+        count++;
+   }
+   
+   return count;
+}
